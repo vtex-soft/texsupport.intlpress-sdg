@@ -37,9 +37,9 @@ Use `sdg-template.tex` as a template.
 ### Document class options
 
 For the SDG journal `sdg` option must be set
-in a `\documentclass[]{ipart}`:
+in a `\documentclass[]{ipbook}`:
 ```latex
-\documentclass[sdg]{ipart}
+\documentclass[sdg]{ipbook}
 ```
 
 ### LaTeX document preamble content

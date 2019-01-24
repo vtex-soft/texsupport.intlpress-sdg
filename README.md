@@ -1,4 +1,4 @@
-# LaTeX author support for the International Press book series *Surveys in Differential Geometry* (*SDG*)
+# International Press book series SDG author support
 
 ## Table of Contents
 

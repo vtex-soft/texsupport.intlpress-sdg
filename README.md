@@ -49,7 +49,7 @@ The preamble of your LaTeX document should look like this:
 ```latex
 \documentclass[sdg]{ipbook}
 
-\title[A sample document]{A sample document for IP book series}
+\title{Title}
 
 \author{First Author}
 \address{Address of the First Author, Country}

@@ -61,15 +61,15 @@ The preamble of your LaTeX document should look like this:
 
 \begin{document}
 
-    \begin{abstract}
-        ...
-    \end{abstract}
+\begin{abstract}
+...
+\end{abstract}
 
-    \maketitle
+\maketitle
 
-    \tableofcontents
+\tableofcontents
 
-    Your manuscript content
+Your manuscript content
 
 \end{document}
 ```

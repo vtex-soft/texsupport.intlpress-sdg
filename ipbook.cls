@@ -43,7 +43,7 @@
 %%
 \NeedsTeXFormat{LaTeX2e}[1995/06/01]
 \ProvidesClass{ipbook}
-    [2024/08/23 v1.10, driver class for IP book series]
+    [2026/02/05 v1.11, driver class for IP book series]
 
 %%  DEPENDENCIES:
 %%  - ipbook-vtex.cfg
@@ -244,6 +244,43 @@
   % {<->tipasl10}{}%
   \RequirePackage{luafonts}%
 \fi
+
+\def\ip@setvaluelist#1#2{%
+    \@tempcnta=0\relax
+    \@for\@curr@val:=#2\do{%
+        \advance\@tempcnta by1\relax
+        \expandafter\protected@xdef\csname #1@item@\the\@tempcnta\endcsname{\@curr@val}%
+        }%
+    \expandafter\protected@xdef\csname #1@item@0\endcsname{\the\@tempcnta}%
+    }
+\xdef\ip@getitemvalue#1#2{\noexpand\csname #1@item@#2\endcsname}
+\newcounter{volume}
+\def\volume#1{\setcounter{volume}{#1}\gdef\@volume{\Roman{volume}}}
+\def\doi@prefix{DOI:~}
+\def\doi@base{https://doi.org/}
+\def\doi@font{}
+\def\print@doi{{\doi@font\doi@prefix\href{\doi@base\@doi}{\@doi}}}
+\def\doi#1{\gdef\@doi{#1}}
+\def\pubonline@prefix{Published online:~}
+\def\pubonline#1{\gdef\@pubonline{#1}}
+\def\sday#1{#1}
+\def\smonth#1{%
+  \@ifundefined{month@item@#1}%
+    {\@latex@error{Incorrect month value #1!}{??}}%
+    {\ip@getitemvalue{month}{#1}}%
+  }
+\def\syear#1{#1}
+\ip@setvaluelist{month}{%
+  January,February,March,April,May,June,July,%
+  August,September,October,November,December%
+  }
+
+\@@ifstrequal{\series@id}{sdg}{%
+  \def\copyright@info{\seriesname}%
+  \def\procart@logo{%
+    \vbox to\headheight{\@logofont\noindent\copyright@info}%
+    }%
+  }{}
 
 \endinput
 %%
